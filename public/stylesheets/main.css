@@ -6,6 +6,10 @@ body {
   border: 1px solid black;
   height: 100%; }
 
+@media (max-width: 768px) {
+  #map-canvas {
+    height: 60vh; } }
+
 #navbar {
   background-color: red; }
 

@@ -7,6 +7,13 @@ body {
   height:100%
 
 }
+
+
+@media(max-width:768px){
+  #map-canvas{
+    height:60vh
+  }
+}
 #navbar {
   background-color:red;
 }
