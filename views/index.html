@@ -3,8 +3,34 @@
 <div id="navbar" class="navbar navbar-default navbar-fixed-top">
 </div>
 <div id="content">
-<div id="map" class="col-sm-8" style="display: block; border:5px solid black;">
+<div id="map-canvas" class="col-sm-8" style="display: block; border:5px solid black;">
 	<h1> MAP </h1>
+	<script type="text/javascript">
+		var map;
+
+		function initMap() {
+		var	myLatlng = new google.maps.LatLng(40.705189,-74.009209);
+			map = new google.maps.Map(document.getElementById('map-canvas'), {
+				center: myLatlng,
+				zoom: 16,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+			var marker = new google.maps.Marker({
+        position: myLatlng,
+        title:"Hello World!"
+    });
+    // Add the marker to the map by calling setMap()
+    marker.setMap(map);
+		}
+	</script>
+
+
+
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=APKKEY&callback=initMap">
+	</script>
+
+
 </div>
 <div id="right-col" class="col-sm-4" >
 	<div class=" panel panel-default" >

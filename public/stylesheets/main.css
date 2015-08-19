@@ -2,7 +2,7 @@ body {
   background-color: yellow;
   padding-top: 49px; }
 
-#map {
+#map-canvas {
   border: 1px solid black;
   height: 100%; }
 
