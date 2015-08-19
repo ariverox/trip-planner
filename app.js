@@ -6,6 +6,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
 var swig = require('swig');
+var routes = require("./routes");
 
 
 // hey app, render views using the html engine
@@ -29,10 +30,9 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/bower_components", express.static(path.join(__dirname, 'bower_components')));
 
-// app.get('/', function(req,res){
-//   //res.send("wadasdawfae")
-// })
+app.use(routes);
 
 
 // catch 404 (i.e., no route was hit) and forward to error handler
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 // handle all errors (anything passed into `next()`)
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    console.log(JSON.stringify(err));    
+    console.log(JSON.stringify(err));
     res.render('error', err);
 });
 
