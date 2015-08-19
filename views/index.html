@@ -1,25 +1,52 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block body %}
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+</div>
+<div id="content">
+<div id="map" class="col-sm-8" style="display: block; border:5px solid black;">
+	<h1> MAP </h1>
+</div>
+<div id="right-col" class="col-sm-4" >
+	<div class=" panel panel-default" >
+
+		<h3>Restaurants</h3>
+		<select>
+			{% for restaurant in restaurants %}
+			<option>{{restaurant.name}}</option>
+			{% endfor %}
+		</select><div class="btn-sm-circle">x</div>
+
+		<h3>Hotels</h3>
+		<select>
+			{% for hotel in hotels %}
+			<option>{{hotel.name}}</option>
+			{% endfor %}
+		</select><div class="btn-sm-circle">x</div>
+
+		<h3>Activities</h3>
+		<select>
+			{% for activity in activities %}
+			<option>{{activity.name}}</option>
+			{% endfor %}
+		</select><div class="btn-sm-circle">x</div>
+	</div>
+
+	<div id="itinerary" >
+		<h2> Day2 </h2>
+		<div id="itinerary-background" class="panel panel-default" >
+			<div id="itinerary-top">
+
+					<div class="btn-circle">1</div>
+					<div class="btn-circle">2</div>
+					<div class="btn-circle">3</div>
+
+			</div>
+
+		</div>
+
+	</div>
+</div>
+</div>
 
 
-{% block body %}
-	<h3>Restaurants</h3>
-	<ul>
-		{% for restaurant in restaurants %}
-			<li>{{restaurant.name}}</li>
-		{% endfor %}
-	</ul>
-
-	<h3>Hotels</h3>
-	<ul>
-		{% for hotel in hotels %}
-			<li>{{hotel.name}}</li>
-		{% endfor %}
-	</ul>
-
-	<h3>Activities</h3>
-	<ul>
-		{% for activity in activities %}
-			<li>{{activity.name}}</li>
-		{% endfor %}
-	</ul>
 {% endblock %}
