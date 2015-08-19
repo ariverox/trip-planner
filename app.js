@@ -14,6 +14,12 @@ app.set('view engine', 'html');
 app.engine('html', swig.renderFile);
 app.set('views', __dirname + '/views');
 
+
+// Request Logging
+app.use(morgan("dev"));
+
+
+// SASS
 app.use(
   sass({
     src: __dirname + '/assets', //where the sass files are
@@ -30,7 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // catch 404 (i.e., no route was hit) and forward to error handler
-
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
@@ -40,7 +45,7 @@ app.use(function(req, res, next) {
 // handle all errors (anything passed into `next()`)
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    console.log(err);
+    console.log(JSON.stringify(err));    
     res.render('error', err);
 });
 
